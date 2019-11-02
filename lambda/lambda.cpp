@@ -18,10 +18,10 @@ int main()
 	std::function< int(int,int) > call;
 
 	int n = 5;
-	//ÄäÃûº¯Êý
-	call = [n/*Íâ²¿±äÁ¿²¶»ñÁÐ±í*/](/*²ÎÊýÁÐ±í*/int a,int b) -> int/*·µ»ØÖµÀàÐÍ*/
+	//åŒ¿åå‡½æ•°
+	call = [n/*å¤–éƒ¨å˜é‡æ•èŽ·åˆ—è¡¨*/](/*å‚æ•°åˆ—è¡¨*/int a,int b) -> int/*è¿”å›žå€¼ç±»åž‹*/
 	{
-		//º¯ÊýÌå
+		//å‡½æ•°ä½“
 		printf("%d\n",n+a+b);
 		return 2;
 	};
@@ -30,41 +30,41 @@ int main()
 	return 0;
 }
 
-/* lambda±í´ïÊ½  À­Âü´ï±í´ïÊ½ ÄäÃûº¯Êý
+/* lambdaè¡¨è¾¾å¼  æ‹‰æ›¼è¾¾è¡¨è¾¾å¼ åŒ¿åå‡½æ•°
 [ caputrue ] ( params ) opt -> ret { body; };
 
-[ Íâ²¿±äÁ¿²¶»ñÁÐ±í ] ( ²ÎÊý±í ) ÌØÊâ²Ù×÷·û -> ·µ»ØÖµÀàÐÍ { º¯ÊýÌå; };
+[ å¤–éƒ¨å˜é‡æ•èŽ·åˆ—è¡¨ ] ( å‚æ•°è¡¨ ) ç‰¹æ®Šæ“ä½œç¬¦ -> è¿”å›žå€¼ç±»åž‹ { å‡½æ•°ä½“; };
 
-²¶»ñÁÐ±í£ºlambda±í´ïÊ½µÄ²¶»ñÁÐ±í¾«Ï¸¿ØÖÆÁËlambda±í´ïÊ½ÄÜ¹»·ÃÎÊµÄÍâ²¿±äÁ¿£¬ÒÔ¼°ÈçºÎ·ÃÎÊÕâÐ©±äÁ¿¡£
+æ•èŽ·åˆ—è¡¨ï¼šlambdaè¡¨è¾¾å¼çš„æ•èŽ·åˆ—è¡¨ç²¾ç»†æŽ§åˆ¶äº†lambdaè¡¨è¾¾å¼èƒ½å¤Ÿè®¿é—®çš„å¤–éƒ¨å˜é‡ï¼Œä»¥åŠå¦‚ä½•è®¿é—®è¿™äº›å˜é‡ã€‚
 
-1) []²»²¶»ñÈÎºÎ±äÁ¿¡£
+1) []ä¸æ•èŽ·ä»»ä½•å˜é‡ã€‚
 
-2) [&]²¶»ñÍâ²¿×÷ÓÃÓòÖÐËùÓÐ±äÁ¿£¬²¢×÷ÎªÒýÓÃÔÚº¯ÊýÌåÖÐÊ¹ÓÃ£¨°´ÒýÓÃ²¶»ñ£©¡£
+2) [&]æ•èŽ·å¤–éƒ¨ä½œç”¨åŸŸä¸­æ‰€æœ‰å˜é‡ï¼Œå¹¶ä½œä¸ºå¼•ç”¨åœ¨å‡½æ•°ä½“ä¸­ä½¿ç”¨ï¼ˆæŒ‰å¼•ç”¨æ•èŽ·ï¼‰ã€‚
 
-3) [=]²¶»ñÍâ²¿×÷ÓÃÓòÖÐËùÓÐ±äÁ¿£¬²¢×÷Îª¸±±¾ÔÚº¯ÊýÌåÖÐÊ¹ÓÃ(°´Öµ²¶»ñ)¡£
+3) [=]æ•èŽ·å¤–éƒ¨ä½œç”¨åŸŸä¸­æ‰€æœ‰å˜é‡ï¼Œå¹¶ä½œä¸ºå‰¯æœ¬åœ¨å‡½æ•°ä½“ä¸­ä½¿ç”¨(æŒ‰å€¼æ•èŽ·)ã€‚
 
-4) [=, &foo]°´Öµ²¶»ñÍâ²¿×÷ÓÃÓòÖÐËùÓÐ±äÁ¿£¬²¢°´ÒýÓÃ²¶»ñfoo±äÁ¿¡£
+4) [=, &foo]æŒ‰å€¼æ•èŽ·å¤–éƒ¨ä½œç”¨åŸŸä¸­æ‰€æœ‰å˜é‡ï¼Œå¹¶æŒ‰å¼•ç”¨æ•èŽ·fooå˜é‡ã€‚
 
-5) [bar]°´Öµ²¶»ñbar±äÁ¿£¬Í¬Ê±²»²¶»ñÆäËû±äÁ¿¡£
+5) [bar]æŒ‰å€¼æ•èŽ·barå˜é‡ï¼ŒåŒæ—¶ä¸æ•èŽ·å…¶ä»–å˜é‡ã€‚
 
-6) [this]²¶»ñµ±Ç°ÀàÖÐµÄthisÖ¸Õë£¬ÈÃlambda±í´ïÊ½ÓµÓÐºÍµ±Ç°Àà³ÉÔ±º¯ÊýÍ¬ÑùµÄ·ÃÎÊÈ¨ÏÞ¡£
-Èç¹ûÒÑ¾­Ê¹ÓÃÁË&»òÕß = £¬¾ÍÄ¬ÈÏº¬ÓÐ´ËÑ¡Ïî¡£
-²¶»ñthisµÄÄ¿µÄÊÇ¿ÉÒÔÔÚlamdaÖÐÊ¹ÓÃµ±Ç°ÀàµÄ³ÉÔ±º¯ÊýºÍ³ÉÔ±±äÁ¿¡£
+6) [this]æ•èŽ·å½“å‰ç±»ä¸­çš„thisæŒ‡é’ˆï¼Œè®©lambdaè¡¨è¾¾å¼æ‹¥æœ‰å’Œå½“å‰ç±»æˆå‘˜å‡½æ•°åŒæ ·çš„è®¿é—®æƒé™ã€‚
+å¦‚æžœå·²ç»ä½¿ç”¨äº†&æˆ–è€… = ï¼Œå°±é»˜è®¤å«æœ‰æ­¤é€‰é¡¹ã€‚
+æ•èŽ·thisçš„ç›®çš„æ˜¯å¯ä»¥åœ¨lamdaä¸­ä½¿ç”¨å½“å‰ç±»çš„æˆå‘˜å‡½æ•°å’Œæˆå‘˜å˜é‡ã€‚
 
 ////////
-1).captureÊÇ²¶»ñÁÐ±í£»
+1).captureæ˜¯æ•èŽ·åˆ—è¡¨ï¼›
 
-2).paramsÊÇ²ÎÊý±í£»(Ñ¡Ìî)
+2).paramsæ˜¯å‚æ•°è¡¨ï¼›(é€‰å¡«)
 
-3).optÊÇº¯ÊýÑ¡Ïî£»¿ÉÒÔÌîmutable,exception,attribute£¨Ñ¡Ìî£©
+3).optæ˜¯å‡½æ•°é€‰é¡¹ï¼›å¯ä»¥å¡«mutable,exception,attributeï¼ˆé€‰å¡«ï¼‰
 
-mutableËµÃ÷lambda±í´ïÊ½ÌåÄÚµÄ´úÂë¿ÉÒÔÐÞ¸Ä±»²¶»ñµÄ±äÁ¿£¬²¢ÇÒ¿ÉÒÔ·ÃÎÊ±»²¶»ñµÄ¶ÔÏóµÄnon-const·½·¨¡£
+mutableè¯´æ˜Žlambdaè¡¨è¾¾å¼ä½“å†…çš„ä»£ç å¯ä»¥ä¿®æ”¹è¢«æ•èŽ·çš„å˜é‡ï¼Œå¹¶ä¸”å¯ä»¥è®¿é—®è¢«æ•èŽ·çš„å¯¹è±¡çš„non-constæ–¹æ³•ã€‚
 
-exceptionËµÃ÷lambda±í´ïÊ½ÊÇ·ñÅ×³öÒì³£ÒÔ¼°ºÎÖÖÒì³£¡£
+exceptionè¯´æ˜Žlambdaè¡¨è¾¾å¼æ˜¯å¦æŠ›å‡ºå¼‚å¸¸ä»¥åŠä½•ç§å¼‚å¸¸ã€‚
 
-attributeÓÃÀ´ÉùÃ÷ÊôÐÔ¡£
+attributeç”¨æ¥å£°æ˜Žå±žæ€§ã€‚
 
-4).retÊÇ·µ»ØÖµÀàÐÍ¡£(Ñ¡Ìî)
+4).retæ˜¯è¿”å›žå€¼ç±»åž‹ã€‚(é€‰å¡«)
 
-5).bodyÊÇº¯ÊýÌå¡£
+5).bodyæ˜¯å‡½æ•°ä½“ã€‚
 */

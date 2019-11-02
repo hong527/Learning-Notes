@@ -1,4 +1,4 @@
-ÎÒµÄC++×ÊÁÏ
-	gitÈëÃÅ gitÊ¹ÓÃ»ù´¡
+æˆ‘çš„C++èµ„æ–™
+	gitå…¥é—¨ gitä½¿ç”¨åŸºç¡€
 	
-	lambda lambda±í´ïÊ½
+	lambda lambdaè¡¨è¾¾å¼

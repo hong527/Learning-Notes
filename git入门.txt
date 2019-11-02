@@ -1,3 +1,28 @@
 配置用户信息：
-git config --global user.name 'name'
-git config --global user.email 'email'
+	git config --global user.name 'name'
+	git config --global user.email 'email'
+
+查看配置信息
+	git config --list
+
+已经git add过的一些文件，被修改了，想add可以使用
+	git add -u
+	
+想更改某个文件的文件名
+	git mv old new
+
+查看分支的提交记录
+	$ git log -a --oneline -n15
+	-a：所有分支的提交记录
+	--oneline：每个记录显示一行信息
+	-n15：最近的15次提交
+	
+.git目录结构
+	config	local配置
+	.git\refs\heads 分支
+	
+git核心对象commit tree blob
+	每次提交创建一个commit对象，commit包含一个tree
+	tree存放本次提交的信息（文件、文件夹）。
+	blob对应一次提交的某个文件。不同文件名相同内容的文件对应于同一个blob
+	文件夹也是一个tree
