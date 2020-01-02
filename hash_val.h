@@ -19,3 +19,5 @@ inline  size_t  hash_val(const Types& ...args) {
 	hash_val(seed, args...);
 	return seed;
 }
+
+//copy from 侯捷
